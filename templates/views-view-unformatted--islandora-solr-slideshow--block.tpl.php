@@ -1,4 +1,6 @@
-<?php foreach ($rows as $id => $row): ?>
+<?php 
+foreach ($rows as $id => $row): ?>
+	
 		<div
 		<?php if ($classes_array[$id]): ?>
         <?php print ' class="' . $classes_array[$id]; ?>

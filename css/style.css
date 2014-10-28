@@ -11028,43 +11028,61 @@ div.region.region-content {
   font-size: 18px;
 }
 
-/* line 274, ../custom_sass/style.scss */
+/* line 277, ../custom_sass/style.scss */
+.region-sidebar-first.well ul.menu.nav li.leaf {
+  border-bottom: 1px #dbd7c7 solid;
+}
+/* line 281, ../custom_sass/style.scss */
+.region-sidebar-first.well.first {
+  border-top: 0px none;
+}
+
+/* line 286, ../custom_sass/style.scss */
 .footer {
   background-color: #211B1D;
   color: #f5f0f0;
 }
 
-/* line 279, ../custom_sass/style.scss */
+/* line 291, ../custom_sass/style.scss */
 .solr-thumb img {
   border: 0px;
 }
 
-/* line 286, ../custom_sass/style.scss */
+/* line 298, ../custom_sass/style.scss */
 dl.dl-horizontal dt {
   border-bottom: #ddd 1px inset;
   line-height: 2.14286;
 }
-/* line 289, ../custom_sass/style.scss */
+/* line 301, ../custom_sass/style.scss */
 dl.dl-horizontal dt:last-child {
   border-bottom: none 0px;
 }
-/* line 293, ../custom_sass/style.scss */
+/* line 305, ../custom_sass/style.scss */
 dl.dl-horizontal dl {
   border-bottom: #ddd 1px inset;
   line-height: 2.14286;
 }
-/* line 296, ../custom_sass/style.scss */
+/* line 308, ../custom_sass/style.scss */
 dl.dl-horizontal dl:last-child {
   border-bottom: none 0px;
 }
-/* line 300, ../custom_sass/style.scss */
+/* line 312, ../custom_sass/style.scss */
 dl.dl-horizontal :nth-child(2n+1) {
   background-color: #f9f9f9;
 }
 
-/* line 304, ../custom_sass/style.scss */
+/* line 316, ../custom_sass/style.scss */
 .panel-default > .panel-heading {
   background-color: #EFEDE6;
+}
+
+/* line 320, ../custom_sass/style.scss */
+.slideshow_islandora_img {
+  margin: -120px 0 -20px 10px;
+  /* play with these to position the image */
+  position: absolute;
+  z-index: 100;
+  min-width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

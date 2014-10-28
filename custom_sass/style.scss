@@ -267,10 +267,22 @@ div.region.region-content
 	padding-top:14px;	
 	}
 
-.region-sidebar-first > h3
+.region-sidebar-first > h3 {
+  font-size: $font-size-h4;
+}
+
+.region-sidebar-first.well 
 	{
-	font-size:$font-size-h4;
-	}
+		
+	  ul.menu.nav li.leaf 
+	  {
+  	  border-bottom: 1px darken($well-bg, 10%) solid;
+      }
+ 	 &.first {
+    border-top: 0px none;
+  }
+}
+
 .footer
 	{
 		background-color:#211B1D;
@@ -305,4 +317,11 @@ dl.dl-horizontal {
 {
 	background-color:$well-bg;
 }
-
+.slideshow_islandora_img
+	{	
+		margin: -120px 0 -20px 10px; /* play with these to position the image */
+		position:absolute;
+		z-index:100;
+		min-width:100%;
+		 
+	}
