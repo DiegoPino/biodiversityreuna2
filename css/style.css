@@ -11019,45 +11019,50 @@ a.logo.navbar-btn {
 }
 
 /* line 265, ../custom_sass/style.scss */
+div.region.region-content {
+  padding-top: 14px;
+}
+
+/* line 270, ../custom_sass/style.scss */
 .region-sidebar-first > h3 {
   font-size: 18px;
 }
 
-/* line 269, ../custom_sass/style.scss */
+/* line 274, ../custom_sass/style.scss */
 .footer {
   background-color: #211B1D;
   color: #f5f0f0;
 }
 
-/* line 274, ../custom_sass/style.scss */
+/* line 279, ../custom_sass/style.scss */
 .solr-thumb img {
   border: 0px;
 }
 
-/* line 281, ../custom_sass/style.scss */
+/* line 286, ../custom_sass/style.scss */
 dl.dl-horizontal dt {
   border-bottom: #ddd 1px inset;
   line-height: 2.14286;
 }
-/* line 284, ../custom_sass/style.scss */
+/* line 289, ../custom_sass/style.scss */
 dl.dl-horizontal dt:last-child {
   border-bottom: none 0px;
 }
-/* line 288, ../custom_sass/style.scss */
+/* line 293, ../custom_sass/style.scss */
 dl.dl-horizontal dl {
   border-bottom: #ddd 1px inset;
   line-height: 2.14286;
 }
-/* line 291, ../custom_sass/style.scss */
+/* line 296, ../custom_sass/style.scss */
 dl.dl-horizontal dl:last-child {
   border-bottom: none 0px;
 }
-/* line 295, ../custom_sass/style.scss */
+/* line 300, ../custom_sass/style.scss */
 dl.dl-horizontal :nth-child(2n+1) {
   background-color: #f9f9f9;
 }
 
-/* line 299, ../custom_sass/style.scss */
+/* line 304, ../custom_sass/style.scss */
 .panel-default > .panel-heading {
   background-color: #EFEDE6;
 }
