@@ -337,7 +337,7 @@ a.navbar-brand
 }
 .jumbotron .block-title
 	{
-		color:$brand-secondary;
+		color:$navbar-default-color;
 		font-size:$font-size-h1;	
-		text-shadow: 2px 1px 0px rgb(190,170,148), 6px 4px 0px rgba(0, 0, 0, 0.15);
+		text-shadow: 2px 1px 0px rgba(190,170,148,0.15)
 	}
