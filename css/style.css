@@ -11099,7 +11099,8 @@ a.navbar-brand {
 /* line 338, ../custom_sass/style.scss */
 .jumbotron .block-title {
   color: #F2B02A;
-  text-shadow: 2px 1px 0px brown, 9px 8px 0px rgba(0, 0, 0, 0.15);
+  font-size: 36px;
+  text-shadow: 2px 1px 0px #beaa94, 6px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 /*# sourceMappingURL=style.css.map */
