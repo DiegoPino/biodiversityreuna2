@@ -319,9 +319,25 @@ dl.dl-horizontal {
 }
 .slideshow_islandora_img
 	{	
-		margin: -120px 0 -20px 10px; /* play with these to position the image */
 		position:absolute;
 		z-index:100;
-		min-width:100%;
-		 
+		position: absolute;
+		min-width:100%; 
+	}
+.islandora-related-content-wrapper > ul
+	{
+	list-style-type: none;
+	}
+	
+a.navbar-brand
+{
+	font-weight: lighter;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+	margin-left:-60px;
+}
+.jumbotron .block-title
+	{
+		color:$brand-secondary;
+		
+		text-shadow: 2px 1px 0px brown, 6px 4px 0px rgba(0, 0, 0, 0.15);
 	}

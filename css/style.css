@@ -11078,11 +11078,28 @@ dl.dl-horizontal :nth-child(2n+1) {
 
 /* line 320, ../custom_sass/style.scss */
 .slideshow_islandora_img {
-  margin: -120px 0 -20px 10px;
-  /* play with these to position the image */
   position: absolute;
   z-index: 100;
+  position: absolute;
   min-width: 100%;
+}
+
+/* line 327, ../custom_sass/style.scss */
+.islandora-related-content-wrapper > ul {
+  list-style-type: none;
+}
+
+/* line 332, ../custom_sass/style.scss */
+a.navbar-brand {
+  font-weight: lighter;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  margin-left: -60px;
+}
+
+/* line 338, ../custom_sass/style.scss */
+.jumbotron .block-title {
+  color: #F2B02A;
+  text-shadow: 2px 1px 0px brown, 9px 8px 0px rgba(0, 0, 0, 0.15);
 }
 
 /*# sourceMappingURL=style.css.map */
