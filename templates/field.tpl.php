@@ -53,8 +53,7 @@
     <?php foreach ($items as $delta => $item):?>
       <div class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>
 		  <?php 
-		  print_r($item);
-		  $item['attributes']['class'][]='badge';
+		  $item['entity']['attributes']['class'][]='badge';
 		  print render($item); 
 		  ?>
 	  
