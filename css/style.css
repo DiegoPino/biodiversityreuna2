@@ -11114,4 +11114,16 @@ a.navbar-brand {
   text-align: center;
 }
 
+/* line 352, ../custom_sass/style.scss */
+.field-type-taxonomy-term-reference .field_item {
+  padding: 5px;
+  float: left;
+  margin: 5px;
+}
+
+/* line 359, ../custom_sass/style.scss */
+.field_item.badge {
+  background-color: #EFA13A;
+}
+
 /*# sourceMappingURL=style.css.map */
