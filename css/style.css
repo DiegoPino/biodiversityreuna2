@@ -11115,15 +11115,22 @@ a.navbar-brand {
 }
 
 /* line 352, ../custom_sass/style.scss */
+.field-type-taxonomy-term-reference {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+/* line 358, ../custom_sass/style.scss */
 .field-type-taxonomy-term-reference .field-item {
-  padding: 5px;
   float: left;
   margin: 5px;
 }
 
-/* line 358, ../custom_sass/style.scss */
-.field-item.badge {
+/* line 363, ../custom_sass/style.scss */
+.field-item .badge {
   background-color: #EFA13A;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
