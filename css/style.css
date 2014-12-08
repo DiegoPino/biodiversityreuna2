@@ -11093,7 +11093,7 @@ dl.dl-horizontal :nth-child(2n+1) {
 a.navbar-brand {
   font-weight: lighter;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  margin-left: -80px !important;
+  margin-left: -180px !important;
 }
 
 /* line 338, ../custom_sass/style.scss */
@@ -11128,9 +11128,9 @@ a.navbar-brand {
 }
 
 /* line 363, ../custom_sass/style.scss */
-.field-item .badge {
+.field-item a.badge {
   background-color: #EFA13A;
-  padding: 10px;
+  padding: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
