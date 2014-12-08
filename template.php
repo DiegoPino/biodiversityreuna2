@@ -18,23 +18,149 @@ function biodiversityreuna2_form_islandora_solr_simple_search_form_alter(&$form,
 		//$form['simple']['submit']['prefix']="<i class='icon-search' title='Search'></i>";
 	}
 	
-/*	function locale_block_view($type) {
-	  if (drupal_multilingual()) {
-	    $path = drupal_is_front_page() ? '<front>' : $_GET['q'];
-	    $links = language_negotiation_get_switch_links($type, $path);
 
-	    if (isset($links->links)) {
-	      drupal_add_css(drupal_get_path('module', 'locale') . '/locale.css');
-	      $class = "language-switcher-{$links->provider}";
-	      $variables = array('links' => $links->links, 'attributes' => array('class' => array($class)));
-	      $block['content'] = theme('links__locale_block', $variables);
-	      $block['subject'] = t('Languages');
-	      return $block;
+	
+function biodiversityreuna2_islandora_bookmark_add_pid(&$form, &$form_state) {
+	  module_load_include('inc', 'islandora_bookmark', 'includes/api');
+	  
+	  	
+	  $key = $form_state['triggering_element']['#return_value'];
+	  $pid = $form_state['islandora_bookmark_pid'];
+	  $object = islandora_object_load($pid);
+	  if ($key !== 'default') {
+	    $bookmark_object = islandora_bookmark_get_bookmark_by_number($key);
+
+	    try {
+	      $bookmark_object->addPids(array($pid));
+	      drupal_set_message(t('The object @label has been bookmarked in @listname.',
+	          array(
+	            '@listname' => $bookmark_object->bookmarkName,
+	            '@label' => $object->label,
+	          )
+	        ));
+	    }
+	    catch (Exception $e) {
+	      drupal_set_message($e->getMessage(), 'error');
 	    }
 	  }
-	}*/
+	  else {
+	    drupal_set_message(t('Please select a list to bookmark @label.', array('@label' => $object->label)), 'error');
+	  }
+	  //return drupal_rebuild_form('islandora_bookmark_fedora_repository_object_form', $form_state, $form);
+	 //$form['islandora_bookmark']['lists2']['allready_inlist'.$key]['#markup']='<i class="fa fa-check-square-o"></i>'.$value;
+	  return('<li><span><i class="fa fa-check-square-o"></i>'.l($form_state['triggering_element']['#title'],'islandora-bookmark/listid/'.$key).'</span></li>');
+	}
 	
 	
+	
+	function biodiversityreuna2_form_islandora_bookmark_fedora_repository_object_form_alter(&$form, &$form_state, $form_id)
+		{	
+			
+			
+			
+			//
+			unset($form['islandora_bookmark']['title']);
+			/*$form['#attributes'] = array('class'=>"form-horizontal");
+			$form['islandora_bookmark']['#prefix']="<div class=\"input-append\">";
+			$form['islandora_bookmark']['#suffix']="</div>";
+			//$form['islandora_bookmark']['add_bookmarks']['#prefix']="<div class=\"form-group\">";
+			//$form['islandora_bookmark']['add_bookmarks']['#suffix']="</div>";
+				//"<span class=\"input-group-addon\"><i class=\"fa fa-star\"></i></span>";
+			//$form['islandora_bookmark']['add_bookmarks']['#suffix']="</div>";
+			$form['islandora_bookmark']['add_button']['#prefix']="<span class=\"input-group-btn\">";
+			$form['islandora_bookmark']['add_button']['#suffix']="</span>";
+			
+				
+				
+				
+			/*	'#type' => 'link',
+					'#title' => t($value),
+			        <span class="input-group-addon"><i class="fa fa-male"></i></span>
+
+			        <div class="form-group">
+			            <input size="50" maxlength="50" class="form-control" name="q" type="text">          
+			        </div>
+
+			        <div class="form-group">
+			            <select class="form-control" name="category">
+			                <option value=""></option>
+			                <option value="0">select1</option>
+			                <option value="1">select2</option>
+			                <option value="2">select3</option>
+			            </select>           
+			        </div>
+			  
+			<i class="fa fa-check-square-o"></i>
+			//
+			/*dpm($form_state['islandora_bookmark_pid']);
+			**/
+			
+				$form['islandora_bookmark']['lists2']['#markup'] = '';
+			$form['islandora_bookmark']['lists2']['#prefix']='<ul class="dropdown-menu">';
+			$form['islandora_bookmark']['lists2']['#suffix']='</ul>';
+			$form['islandora_bookmark']['#suffix']="</div>";
+			unset($form['islandora_bookmark']['add_button']);
+			if (isset($form['islandora_bookmark']['add_bookmarks']))
+				{
+			foreach($form['islandora_bookmark']['add_bookmarks']['#options'] as $key=>$value)
+				{
+				if ($key!='default')	
+					{
+				$checkbox=array(
+					'#type' => 'checkbox',
+					'#id'=>'checkbox_'.$key,
+					'#tree'=>true,
+					'#title'=>$value,
+					//'#name' =>'checkbox_'.$key,
+    				'#default_value' => false,
+					'#return_value' => $key,
+				    '#prefix' => '<li id="list_label_'.$key.'">',
+				    '#suffix' => '</li>',
+					'#ajax' => array(
+						'event' => 'change',
+						'wrapper' => 'list_label_'.$key,
+						'callback'=>'biodiversityreuna2_islandora_bookmark_add_pid',
+						'method'=>'replace',
+						)
+					);
+				$form['islandora_bookmark']['lists2']['checkbox_list'.$key]=$checkbox;	
+				
+				}
+			}
+			unset($form['islandora_bookmark']['add_bookmarks']);
+			}
+			$num=0;
+			if (isset($form['islandora_bookmark']['lists']))
+				{
+			foreach($form['islandora_bookmark']['lists']['#items'] as $key=>$value)
+				{
+				$num++;	
+			  	$form['islandora_bookmark']['lists2']['allready_inlist'.$key]['#markup']='<li><span><i class="fa fa-check-square-o"></i>'.$value.'</span></li>';
+			  
+			
+				}
+				unset($form['islandora_bookmark']['lists']);
+			}
+			$form['islandora_bookmark']['#prefix']='<div class="btn-group"><a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-caret-down"></span> Bookmark <span class="badge">'.$num.'</span></a>';
+		
+			
+			
+
+/*			
+			<div class="btn-group open">
+			  <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> User</a>
+			  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+			    <span class="fa fa-caret-down"></span></a>
+			  <ul class="dropdown-menu">
+			    <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+			    <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+			    <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
+			    <li class="divider"></li>
+			    <li><a href="#"><i class="i"></i> Make admin</a></li>
+			  </ul>
+			</div>*/
+			
+		}
 	
 	function biodiversityreuna2_links__locale_block(&$variables) {
 		
@@ -235,4 +361,17 @@ function biodiversityreuna2_menu_local_tasks_alter(&$data, $router_item, $root_p
 	    }
 	  }
 	}	
-	
+function biodiversityreuna2_preprocess_block(&$vars)  {
+	//Add well class to every block inside first side bar
+	    // Make sure it's the first sidebar
+		
+	    if ($vars['block']->region == 'sidebar_first')
+	    {
+	        // Get the count of blocks
+	        //$aBlocks = block_list($vars['block']->region);
+	        //$count = count($aBlocks);
+
+	        $vars['classes_array'][] = 'well';
+	       
+	    }
+	}

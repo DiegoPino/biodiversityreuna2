@@ -268,7 +268,7 @@ div.region.region-content
 	}
 
 .region-sidebar-first > h3 {
-  font-size: $font-size-h4;
+  font-size: $font-size-h5;
 }
 
 .region-sidebar-first.well 
@@ -333,7 +333,7 @@ a.navbar-brand
 {
 	font-weight: lighter;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-	margin-left:-60px;
+	margin-left:-80px !important;
 }
 .jumbotron .block-title
 	{
@@ -341,3 +341,14 @@ a.navbar-brand
 		font-size:$font-size-h1;	
 		text-shadow: 2px 1px 0px rgba(190,170,148,0.15)
 	}
+#islandora-bookmark .dropdown-menu li 
+{
+	padding-left:5px;
+}
+#islandora-bookmark .dropdown-menu li span a {
+  padding-left: 20px;
+  text-align: center;
+}
+
+
+	

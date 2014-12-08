@@ -11025,7 +11025,7 @@ div.region.region-content {
 
 /* line 270, ../custom_sass/style.scss */
 .region-sidebar-first > h3 {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 /* line 277, ../custom_sass/style.scss */
@@ -11093,7 +11093,7 @@ dl.dl-horizontal :nth-child(2n+1) {
 a.navbar-brand {
   font-weight: lighter;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  margin-left: -60px;
+  margin-left: -80px !important;
 }
 
 /* line 338, ../custom_sass/style.scss */
@@ -11101,6 +11101,17 @@ a.navbar-brand {
   color: #f5f0f0;
   font-size: 36px;
   text-shadow: 2px 1px 0px rgba(190, 170, 148, 0.15);
+}
+
+/* line 344, ../custom_sass/style.scss */
+#islandora-bookmark .dropdown-menu li {
+  padding-left: 5px;
+}
+
+/* line 348, ../custom_sass/style.scss */
+#islandora-bookmark .dropdown-menu li span a {
+  padding-left: 20px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
