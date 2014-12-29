@@ -13,7 +13,7 @@ function biodiversityreuna2_form_islandora_solr_simple_search_form_alter(&$form,
 		//$form['class'][]='form-horizontal';
 		$form['simple']['submit']['#value'] = '<i class="fa fa-search fa-2x"></i>';
 		$form['simple']['submit']['#attributes']=array('title' => t('Search'));
-		$form['simple']['submit']['#attributes']['class']=array('btn-sm');
+		$form['simple']['submit']['#attributes']['class']=array('btn-sm','btn-primary');
 		$form['simple']['islandora_simple_search_query']['#attributes']=array('placeholder'=>t('Search our repository'));
 		//$form['simple']['submit']['prefix']="<i class='icon-search' title='Search'></i>";
 	}
