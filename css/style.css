@@ -11006,7 +11006,7 @@ a.logo.navbar-btn {
   text-shadow: 0px 0px 0 0 #EEE;
 }
 /* line 251, ../custom_sass/style.scss */
-.carousel-inner .item .carousel-caption h3 > aa:hover {
+.carousel-inner .item .carousel-caption h3 > a:hover {
   color: black;
 }
 
@@ -11021,7 +11021,7 @@ a.logo.navbar-btn {
 .carousel-control.right, .carousel-control.left {
   background: none;
   top: 50%;
-  z-index: 5;
+  z-index: 100;
   display: inline-block;
 }
 
