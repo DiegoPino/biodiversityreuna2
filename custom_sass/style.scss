@@ -231,12 +231,18 @@ a.logo.navbar-btn {
 .carousel-inner .item.active .carousel-caption h3 {
   @include opacity(1);
   margin-top: 0px;
+  
 }
 
 .carousel-inner .item .carousel-caption h3 {
   @include transition-property(all);
   @include transition-duration(0.5s);
   @include transition-timing-function(ease-in);
+  & > a
+  {
+  background-color:white;
+  padding:5px;	
+  }
 }
 
 
@@ -253,6 +259,8 @@ a.logo.navbar-btn {
     z-index: 5;
     display: inline-block;
 }
+
+
 #page-header #edit-islandora-simple-search-query
 {
 width:250px;
@@ -333,7 +341,8 @@ a.navbar-brand
 {
 	font-weight: lighter;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-	margin-left:-80px !important;
+	margin-left:-180px !important;
+	font-size:15px;
 }
 .jumbotron .block-title
 	{
@@ -348,6 +357,21 @@ a.navbar-brand
 #islandora-bookmark .dropdown-menu li span a {
   padding-left: 20px;
   text-align: center;
+}
+.field-type-taxonomy-term-reference
+{
+	float: left;
+	clear: both;
+	width:100%;
+}
+.field-type-taxonomy-term-reference .field-item {
+  float: left;
+  margin: 5px;
+}
+
+.field-item a.badge {
+  background-color: $color-naranjo-links;
+  padding: 5px;
 }
 
 
