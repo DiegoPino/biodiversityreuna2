@@ -221,7 +221,10 @@ a.logo.navbar-btn {
 	}
 
 }
-
+.carousel-inner .item .carousel-caption
+{
+	right:0px;
+}
 
 .carousel-inner .item .carousel-caption h3 {
   @include opacity(0);
@@ -239,10 +242,18 @@ a.logo.navbar-btn {
   @include transition-duration(0.5s);
   @include transition-timing-function(ease-in);
   & > a
-  {
+  	{
   background-color:white;
-  padding:5px;	
-  }
+  padding:12px;	
+  display:inline-block;
+  
+  @include single-text-shadow(0px, 0px, 0, 0, #EEE);
+  &a:hover
+   {
+	   color:black;
+   }
+  	}
+  	
 }
 
 
