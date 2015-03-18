@@ -20,32 +20,9 @@ function biodiversityreuna2_form_islandora_solr_simple_search_form_alter(&$form,
 
 	
 function biodiversityreuna2_islandora_bookmark_add_pid(&$form, &$form_state) {
-	  module_load_include('inc', 'islandora_bookmark', 'includes/api');
-	  
-	  	
-	  $key = $form_state['triggering_element']['#return_value'];
-	  $pid = $form_state['islandora_bookmark_pid'];
-	  $object = islandora_object_load($pid);
-	  if ($key !== 'default') {
-	    $bookmark_object = islandora_bookmark_get_bookmark_by_number($key);
-
-	    try {
-	      $bookmark_object->addPids(array($pid));
-	      drupal_set_message(t('The object @label has been bookmarked in @listname.',
-	          array(
-	            '@listname' => $bookmark_object->bookmarkName,
-	            '@label' => $object->label,
-	          )
-	        ));
-	    }
-	    catch (Exception $e) {
-	      drupal_set_message($e->getMessage(), 'error');
-	    }
-	  }
-	  else {
-	    drupal_set_message(t('Please select a list to bookmark @label.', array('@label' => $object->label)), 'error');
-	  }
-	  return('<li><span><i class="fa fa-check-square-o"></i>'.l($form_state['triggering_element']['#title'],'islandora-bookmark/listid/'.$key).'</span></li>');
+   module_load_include('inc', 'islandora_bookmark', 'includes/api');
+   $form_state['values']['add_bookmarks']=$form_state['triggering_element']['#return_value'];
+   return islandora_bookmark_add_pid($form, $form_state);
 	}
 	
 	
@@ -53,7 +30,6 @@ function biodiversityreuna2_islandora_bookmark_add_pid(&$form, &$form_state) {
 	function biodiversityreuna2_form_islandora_bookmark_fedora_repository_object_form_alter(&$form, &$form_state, $form_id)
 		{	
 			unset($form['islandora_bookmark']['title']);
-			
 			$form['islandora_bookmark']['lists2']['#markup'] = '';
 			$form['islandora_bookmark']['lists2']['#prefix']='<ul class="dropdown-menu">';
 			$form['islandora_bookmark']['lists2']['#suffix']='</ul>';
@@ -70,17 +46,18 @@ function biodiversityreuna2_islandora_bookmark_add_pid(&$form, &$form_state) {
 					'#id'=>'checkbox_'.$key,
 					'#tree'=>true,
 					'#title'=>$value,
-    				'#default_value' => false,
+    			'#default_value' => false,
 					'#return_value' => $key,
-				    '#prefix' => '<li id="list_label_'.$key.'">',
-				    '#suffix' => '</li>',
+				  '#prefix' => '<li id="list_label_'.$key.'">',
+				  '#suffix' => '</li>',
 					'#ajax' => array(
 						'event' => 'change',
-						'wrapper' => 'list_label_'.$key,
-						'callback'=>'biodiversityreuna2_islandora_bookmark_add_pid',
-						'method'=>'replace',
+            'wrapper' => 'islandora-bookmark',
+            'method' => 'replace',
+            'callback'=>'biodiversityreuna2_islandora_bookmark_add_pid',
 						)
 					);
+        
 				$form['islandora_bookmark']['lists2']['checkbox_list'.$key]=$checkbox;	
 				
 				}
@@ -97,8 +74,15 @@ function biodiversityreuna2_islandora_bookmark_add_pid(&$form, &$form_state) {
 			  
 			
 				}
+       
 				unset($form['islandora_bookmark']['lists']);
 			}
+      $hiddentimes = array(
+        '#type' => 'hidden',
+        '#id'=>'times_bookmarked',
+        '#value'=>$num,
+      ); 
+      $form['islandora_bookmark']['times_bookmarked']=$hiddentimes;
 			$form['islandora_bookmark']['#prefix']='<div class="btn-group"><a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-caret-down"></span> Bookmark <span class="badge">'.$num.'</span></a>';
 		
 	}
